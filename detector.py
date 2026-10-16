@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 df = pd.read_csv('creditcard.csv')
 
@@ -38,4 +39,16 @@ output.columns = ['Amount', 'Actually_Fraud', 'Z_Score']
 output = output.sort_values('Z_Score', ascending=False)
 output.to_csv('flagged_transactions.csv', index=False)
 print("\nResults saved to flagged_transactions.csv")
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+
+axes[0].hist(df[df['Class'] == 0]['Amount'], bins=50, color='steelblue', alpha=0.7)
+axes[0].set_title('Normal Transactions')
+axes[0].set_xlabel('Amount')
+axes[0].set_ylabel('Count')
+
+axes[1].hist(df[df['Class'] == 1]['Amount'], bins=50, color='crimson', alpha=0.7)
+axes[1].set_title('Fraudulent Transactions')
+axes[1].set_xlabel('Amount')
+
+plt.tight_layout()
 plt.savefig('distribution.png')
