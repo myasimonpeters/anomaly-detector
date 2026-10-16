@@ -38,3 +38,4 @@ output.columns = ['Amount', 'Actually_Fraud', 'Z_Score']
 output = output.sort_values('Z_Score', ascending=False)
 output.to_csv('flagged_transactions.csv', index=False)
 print("\nResults saved to flagged_transactions.csv")
+plt.savefig('distribution.png')
