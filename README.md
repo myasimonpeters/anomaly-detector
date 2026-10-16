@@ -51,6 +51,19 @@ trained on labelled data.
 - numpy — statistical calculations
 - matplotlib — visualisation
 
+## What I found
+
+The z-score method flagged 4,076 transactions, correctly identifying 
+11 of 492 fraudulent ones. The IQR method flagged 31,904 transactions, 
+catching 91 fraudulent cases. Neither method alone is sufficient — 
+fraud doesn't always appear as unusually large amounts. This suggests 
+the next step is machine learning models trained on all features, 
+not just transaction amount.
+
+## Output
+
+![Transaction Distribution](distribution.png)
+
 ## Next steps
 
 - Implement Isolation Forest (scikit-learn) for ML-based detection
